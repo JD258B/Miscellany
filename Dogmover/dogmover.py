@@ -1,4 +1,4 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python3
 """Usage:
   dogmover.py pull (<type>) [--tag tag]... [--dry-run] [-h]
   dogmover.py push (<type>) [--dry-run] [-h]
@@ -10,6 +10,7 @@ Examples:
 
     Synthetic api tests using --tag that only pulls tests if the tags exist on them:
         dogmover.py pull synthetic_api_tests --tag env:production --tag application:abc
+        dogmover.py pull synthetic_api_tests --tag env:production -t application:abc
         dogmover.py push synthetic_api_tests
 
     Run with --dry-run without making any changes to your Datadog account:
@@ -19,11 +20,12 @@ Examples:
     Supported arguments:
     dogmover.py pull|push dashboards|monitors|users|synthetics_api_tests|synthetics_browser_tests|awsaccounts|logpipelines|notebooks (--tag tag) (--dry-run|-h)
 
-    Note. --tag is currently only supported for synthetics_api_tests, synthetics_browser_tests and monitors.
+    Note. -t, --tag is currently only supported for synthetics_api_tests, synthetics_browser_tests and monitors.
 
 Options:
   -h, --help
   -d, --dry-run
+  -t=tag, --tag=tag
 """
 __author__ = "Misiu Pajor <misiu.pajor@datadoghq.com>"
 __version__ = "2.0.6"

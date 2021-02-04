@@ -1,5 +1,9 @@
 # Dogmover
 
+Forked from Datadogs repo [Dogmover](https://github.com/DataDog/Miscellany). Dog Mover was not working on Python3. This code will work with python but I am unsure of if there are any additional issues.
+ - Fixed the tag argument
+ - Updated Dockerfile to use Python3 as well
+
 ![Dogmover](https://github.com/DataDog/Miscellany/blob/master/Dogmover/dogmover.png "A moving dog.")
 
 This tool is built to help migrate Datadog `dashboards`, `monitors`, `users`, `synthetic api tests`, `synthetic browser tests`, `aws accounts`, `log pipelines` and `notebooks` from one Datadog organization (eg. in US) to another (eg. in EU). The tool also supports moving these resources within the same instances (eg. EU to EU _or_ US to US).
@@ -52,12 +56,14 @@ If you are not using the `--dry-run` argument, all your pulls will create a JSON
 ./notebooks/*.json
 ```
 
-### The --tag argument
+### The -t, --tag argument
 You can choose to pull specific synthetic tests|monitors based on their tags, example usage:
 `dogmover.py pull synthetics_api_tests --tag env:prod --tag application:abc`
+`dogmover.py pull synthetics_api_tests -t env:prod -t application:abc`
 `dogmover.py pull monitors --tag team:web`
+`dogmover.py pull monitors -t team:web`
 
-`--tag` is currently only supported for synthetics_api_tests, synthetics_browser_tests and monitors.
+`-t`, `--tag` is currently only supported for synthetics_api_tests, synthetics_browser_tests and monitors.
 
 ### Pushing monitors will schedule a managed downtime
 Pushing monitors will automatically schedule a managed downtime for _all_ your monitors, this is to suppress false/positive alerts. You can remove this scheduled downtime by navigating to `Monitors -> Manage downtime` in Datadog.
