@@ -1,3 +1,5 @@
+Fixed Dogmover tool to work with python3 and enabled it so the --tags argument works. Unable to contribute to the Datadog repo so I forked it and updated it here. I have not tweaked or changed any other tool. I have not needed to use the others yet but I will updated if I make a change to them.
+
 # Miscellany
 Intended to be a repository for miscellaneous scripts and tools from Datadog to be shared with the public.
 
